@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20210224074607_AddModelandmakesToDB.cs" />
+    <Compile Remove="Migrations\20210224074607_AddModelandmakesToDB.Designer.cs" />
+    <Compile Remove="Migrations\20210228163508_AddNewPropertiesFeature.cs" />
+    <Compile Remove="Migrations\20210228163508_AddNewPropertiesFeature.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.12" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.12">
       <PrivateAssets>all</PrivateAssets>
