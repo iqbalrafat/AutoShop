@@ -1,4 +1,5 @@
-﻿using AutoShop.Models;
+﻿using AutoShop.AppDbContext;
+using AutoShop.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -7,14 +8,19 @@ using System.Threading.Tasks;
 
 namespace AutoShop.Controllers
 {
+
     public class MakeController : Controller
     {
-        //make/bikes    (this is the route how the view will be called "/controller/action)
-        public IActionResult Bikes()
+        private AutoDbContext _db;
+        public MakeController(AutoDbContext db)
+        {
+            _db = db;
+        }
+        public IActionResult Index()
            
         {
-            Make make = new Make { Id = 1, Name = "Harley Davidson" };
-            return View(make);
+            var data = _db.Makes.ToList();
+            return View(data);
         }
     }
 }
