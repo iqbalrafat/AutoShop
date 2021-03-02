@@ -16,8 +16,7 @@ namespace AutoShop.Controllers
         {
             _db = db;
         }
-        public IActionResult Index()
-           
+        public IActionResult Index()           
         {
             var data = _db.Makes.ToList();
             return View(data);
