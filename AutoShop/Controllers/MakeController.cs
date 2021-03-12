@@ -38,5 +38,19 @@ namespace AutoShop.Controllers
             }
             return View(make);
         }
+        [HttpPost]
+        public IActionResult Delete(int Id)
+        {
+           var data = _db;
+           var make = data.Makes.Where(m => m.Id == Id).FirstOrDefault();
+            if (make == null)
+            {
+                return StatusCode(401,NotFound());
+            }
+            _db.Makes.Remove(make);
+            _db.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }

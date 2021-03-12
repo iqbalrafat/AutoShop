@@ -30,9 +30,12 @@
                     </td>
                     <td class="text-right">
                         <div class="btn-group" role="group">
-                            <a type="button" class="btn btn-primary" href="@Url.Action("Edit/"+item.Id)">Edit</a>
-                            <a type="button" class="btn btn-primary" href="@Url.Action("Edit/"+item.Id)">Delete</a>
-                        </div>
+                            <a type="button" class="btn btn-primary" href="@Url.Action("Edit","Make",new { Id = item.Id })">Edit</a>
+                            @*<a type="button" class="btn btn-primary" href="/Make/Delete/@item.Id">Delete</a>*@
+                        <form method="post" action="Delete">
+                            <input onclick="if(!confirm('Are you sure you like to Delete')){return false}" type="submit"  class="btn btn-danger round-0" asp-action="Delete" value="Delete" asp-route-id="@item.Id" />
+                        </form>
+                         </div>
 
 
                     </td>
