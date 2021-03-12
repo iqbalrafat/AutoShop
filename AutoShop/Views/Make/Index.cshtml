@@ -11,6 +11,7 @@
         <h2 class="text-info"> Makes of Vehicles</h2>
     </div>
     <div class="col-6 text-right ">
+        @*Here we will call Create action method define in controller. asp-action is use for this purpose*@
         <a class="btn btn-info" asp-action="Create">Add New Make</a>
     </div>
     <br/>
@@ -20,13 +21,13 @@
                 <th>@Html.DisplayNameFor(m=>m.Name)</th>
                 <th></th>
             </tr>
+      @*We use the @ sign whenever we like to use C#.*@
             @foreach(var item in Model)
             {
                 <tr>
                     <td>@Html.DisplayFor(m=>item.Name)</td>
                     <td class="text-right"> Edit | Delete</td>
-                </tr>
-                
+                </tr>                
 
             }
 
