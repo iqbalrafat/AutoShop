@@ -51,6 +51,26 @@ namespace AutoShop.Controllers
             _db.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
-
+        public IActionResult Edit(int Id)
+        {
+            var data = _db;
+            var make = data.Makes.Where(m => m.Id == Id).FirstOrDefault();
+            if (make == null)
+            {
+                return StatusCode(401, NotFound());
+            }
+            return View(make);
+        }
+        [HttpPost]
+        public IActionResult Edit(Make make)
+        {        
+            if (ModelState.IsValid)
+            {
+                _db.Update(make);
+                _db.SaveChanges();
+                return RedirectToAction(nameof(Index));
+             }
+                return StatusCode(401, NotFound());
+        }
     }
 }
