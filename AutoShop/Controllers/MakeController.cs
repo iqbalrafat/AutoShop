@@ -21,5 +21,22 @@ namespace AutoShop.Controllers
             var data = _db.Makes.ToList();
             return View(data);
         }
+        //HTTP Get Request
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Create(Make make)
+        {
+            if (ModelState.IsValid)
+            {
+                var data = _db;
+                data.Add(make);
+                data.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(make);
+        }
     }
 }
