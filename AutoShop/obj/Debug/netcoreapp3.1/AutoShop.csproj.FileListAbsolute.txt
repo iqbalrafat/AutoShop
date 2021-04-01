@@ -151,3 +151,4 @@ D:\AutoShop\AutoShop\obj\Debug\netcoreapp3.1\Razor\Views\Make\Bikes.cshtml.g.cs
 D:\AutoShop\AutoShop\obj\Debug\netcoreapp3.1\Razor\Views\Make\Index.cshtml.g.cs
 D:\AutoShop\AutoShop\obj\Debug\netcoreapp3.1\Razor\Views\Make\Create.cshtml.g.cs
 D:\AutoShop\AutoShop\obj\Debug\netcoreapp3.1\Razor\Views\Make\Edit.cshtml.g.cs
+D:\AutoShop\AutoShop\obj\Debug\netcoreapp3.1\Razor\Views\Model\Index.cshtml.g.cs
