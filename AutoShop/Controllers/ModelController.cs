@@ -30,5 +30,10 @@ namespace AutoShop.Controllers
             var model = _db.Models.Include(m => m.Make); //It will take all  Make
             return View(model);
         }
+        //Create 
+        public IActionResult Create()
+        {
+            return View(ModelVM);
+        }
     }
 }
