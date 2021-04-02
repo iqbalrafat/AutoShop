@@ -35,5 +35,16 @@ namespace AutoShop.Controllers
         {
             return View(ModelVM);
         }
+        [HttpPost,ActionName("Create")]
+        public IActionResult CreatePost()
+        {
+            if(!ModelState.IsValid)
+            {
+                return View(ModelVM);
+            }
+            _db.Models.Add(ModelVM.Model);
+            _db.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
