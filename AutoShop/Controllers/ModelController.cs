@@ -53,7 +53,18 @@ namespace AutoShop.Controllers
             {
                 return NotFound();
             }
-            return View (ModelVM);
+            return View(ModelVM);
+        }
+        [HttpPost, ActionName("Edit")]
+        public IActionResult EditPost()
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(ModelVM);
+            }
+            _db.Update(ModelVM.Model);
+            _db.SaveChanges();
+            return RedirectToAction(nameof(Index));
         }
     }
 }
