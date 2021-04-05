@@ -26,7 +26,7 @@
             </tr>
             @*We use the @ sign whenever we like to use C#.*@
             @foreach (var item in Model)
-            {
+             {
         <tr>
             <td>
                 @Html.DisplayFor(m => item.Make.Name)
@@ -38,19 +38,14 @@
                 <div class="btn-group" role="group">
                     <a type="button" class="btn btn-primary" href="@Url.Action("Edit","Model",new { Id = item.Id })">Edit</a>
                     @*<a type="button" class="btn btn-primary" href="/Make/Delete/@item.Id">Delete</a>*@
-                    <form method="post" action="Delete">
-                        <input onclick="if(!confirm('Are you sure you like to Delete')){return false}" type="submit" class="btn btn-danger round-0" asp-action="Delete" value="Delete" asp-route-id="@item.Id" />
-                    </form>
+                    @*<form method="post" action="Delete">
+                    <input onclick="if(!confirm('Are you sure you like to Delete Model')){return false}" type="submit" class="btn btn-danger round-0" asp-action="Delete" value="Delete" asp-route-id="@Model" />
+                </form>*@
                 </div>
-
-
             </td>
+            <partial name="_TableButtonPartial" model="item.Id" />
         </tr>
-
-
-
-            }
-
-        </table>
+             }
+         </table>
     </div>
 </div>
