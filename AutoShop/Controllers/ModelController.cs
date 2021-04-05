@@ -66,5 +66,18 @@ namespace AutoShop.Controllers
             _db.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
+        [HttpPost]
+        public IActionResult Delete (int id)
+        {
+            var data = _db;
+            var model = data.Models.Where(m => m.Id == id).FirstOrDefault();
+            if (model == null)
+            {
+                return StatusCode(401, NotFound());
+            }
+            _db.Models.Remove(model);
+            _db.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }     
     }
 }
